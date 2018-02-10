@@ -1,20 +1,18 @@
 package com.example.demo.controller;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
 import java.util.TreeSet;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.basic.Jogos;
 import com.example.demo.basic.LoteryCheck;
 
 @RestController
@@ -26,9 +24,8 @@ public class LoteryController {
 
 		TreeSet<Integer> lastNumbers = null;
 		try {
-			lastNumbers = readPage();
+			lastNumbers = getNumbers();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -36,7 +33,21 @@ public class LoteryController {
 
 	}
 
-	public TreeSet<Integer> readPage() throws Exception {
+	@RequestMapping(method = RequestMethod.POST)
+	public @ResponseBody LoteryCheck readGamesPlayed(@RequestBody Jogos jogos) {
+		System.out.println(jogos.toString());
+		TreeSet<Integer> lastNumbers = null;
+		try {
+			lastNumbers = getNumbers();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return new LoteryCheck("Nós Ganhamos!!", lastNumbers);
+
+	}
+
+	public TreeSet<Integer> getNumbers() throws Exception {
 		TreeSet<Integer> lastNumbers = new TreeSet<Integer>();
 		Document doc = Jsoup.connect("https://noticias.uol.com.br/loterias/mega-sena/").get();
 		Elements content = doc.getElementsByClass("jogo");

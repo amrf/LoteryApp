@@ -90,77 +90,33 @@ public class LoteryService {
 					+ numerosAcertados);
 		}
 
-		/*
-		 * int[] array = new int[]{45,25,3,65,48,21,3,6,1,8};
-		 * 
-		 * print(array);
-		 * 
-		 * quick_sort(array, 5, 10);
-		 * 
-		 * print(array);
-		 */
-
 	}
 
-	// public static void print(int[] array) {
-	// System.out.println("=================================================");
-	// for (int i=0; i<array.length; i++) {
-	// System.out.println(array[i]);
-	// }
-	// }
+	class Jogo {
 
-	// public static void quick_sort(int[] v, int ini, int fim) {
-	// int meio;
-	//
-	// if (ini < fim) {
-	// meio = partition(v, ini, fim);
-	// quick_sort(v, ini, meio);
-	// quick_sort(v, meio + 1, fim);
-	// }
-	// }
+		private List<String> numeros;
 
-	// public static int partition(int[] v, int ini, int fim) {
-	// int pivo, topo;
-	// pivo = v[ini];
-	// topo = ini;
-	//
-	// for (int index = ini + 1; index < fim; index++) {
-	// if (v[index] < pivo) {
-	// v[topo] = v[index];
-	// v[index] = v[topo + 1];
-	// topo++;
-	// }
-	// }
-	// v[topo] = pivo;
-	// return topo;
-	// }
+		public Jogo() {
+			this.numeros = new ArrayList<String>();
+		}
 
-}
+		public Jogo(String num1, String num2, String num3, String num4, String num5, String num6) {
+			this();
+			this.numeros.add(num1);
+			this.numeros.add(num2);
+			this.numeros.add(num3);
+			this.numeros.add(num4);
+			this.numeros.add(num5);
+			this.numeros.add(num6);
+		}
 
-class Jogo {
+		public List<String> getNumeros() {
+			return numeros;
+		}
 
-	private List<String> numeros;
+		public void setNumeros(List<String> numeros) {
+			this.numeros = numeros;
 
-	public Jogo() {
-		this.numeros = new ArrayList<String>();
-	}
-
-	public Jogo(String num1, String num2, String num3, String num4, String num5, String num6) {
-		this();
-		this.numeros.add(num1);
-		this.numeros.add(num2);
-		this.numeros.add(num3);
-		this.numeros.add(num4);
-		this.numeros.add(num5);
-		this.numeros.add(num6);
-	}
-
-	public List<String> getNumeros() {
-		return numeros;
-	}
-
-	public void setNumeros(List<String> numeros) {
-		this.numeros = numeros;
-
+		}
 	}
 }
