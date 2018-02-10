@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoteryController {
 
 	
-	@RequestMapping(method = RequestMethod.POST)
-	void readBookmarks() {
+	@RequestMapping(method = RequestMethod.GET)
+	String readBookmarks() {
 		System.out.println("Rodou!!");
+		return "rodou";
 	}
 }
