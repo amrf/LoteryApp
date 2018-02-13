@@ -114,9 +114,8 @@ public class LoteryService {
 			return numeros;
 		}
 
-		public void setNumeros(List<String> numeros) {
-			this.numeros = numeros;
+	public void setNumeros(List<String> numeros) {
+		this.numeros = numeros;
 
-		}
-	}
+	}}
 }

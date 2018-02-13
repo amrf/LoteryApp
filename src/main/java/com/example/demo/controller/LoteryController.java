@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.basic.Jogos;
 import com.example.demo.basic.LoteryCheck;
+import com.example.demo.config.MainConfig;
 
 @RestController
 @RequestMapping("/")
@@ -21,6 +22,7 @@ public class LoteryController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public @ResponseBody LoteryCheck readBookmarks() {
+		
 
 		TreeSet<Integer> lastNumbers = null;
 		try {
